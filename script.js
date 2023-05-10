@@ -40,13 +40,13 @@ function createLine(p1, p2, strong) {
   lineEL.setAttribute("x2", p2.x);
   lineEL.setAttribute("y2", p2.y);
   lineEL.setAttribute("stroke", "blue");
-  lineEL.setAttribute("stroke-width", strong ? 2 : 1);
+  lineEL.setAttribute("stroke-width", strong ? 2.5 : 1);
 }
 
 function drawTick(deg) {
   const strong = deg % 30 == 0;
   const p1 = findXY(100, deg, offset);
-  const p2 = findXY(90, deg, offset);
+  const p2 = findXY(strong ? 80 : 90, deg, offset);
   createLine(p1, p2, strong);
 }
 
