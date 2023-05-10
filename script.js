@@ -11,15 +11,13 @@ function createPoint(x, y) {
   circleEL.setAttribute("r", 5);
 }
 
-
-  function findXY(r, deg, offset) {
-      const rad = degToRad(deg);
-      let x = r * Math.cos(rad);
-      let y = r * Math.sin(rad);
-      if (offset) {
-        x = x + offset.x;
-        y = y + offset.y;
-      }
-      return { x, y };
-    }
-    
+function findXY(r, deg, offset) {
+  const rad = degToRad(deg);
+  let x = r * Math.cos(rad);
+  let y = r * Math.sin(rad);
+  if (offset) {
+    x = x + offset.x;
+    y = y + offset.y;
+  }
+  return { x, y };
+}
