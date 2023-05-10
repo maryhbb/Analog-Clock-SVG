@@ -42,8 +42,13 @@ function createLine(p1, p2) {
   lineEL.setAttribute("stroke", "blue");
 }
 
-function drawTick(deg) {
-  const p1 = findXY(100, deg, offset);
-  const p2 = findXY(90, deg, offset);
-  createLine(p1, p2);
+function drawTick (deg){
+    const strong = deg % 30 == 0 ;
+   const p1 =  findXY(100, deg , offset);
+    const p2 = findXY (90, deg, offset);
+    createLine(p1, p2, strong);
+}
+
+for (let deg = 0; deg < 360; deg += 6) {
+    drawTick(deg);
 }
