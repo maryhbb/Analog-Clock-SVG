@@ -11,6 +11,8 @@ function createPoint(x, y) {
   circleEL.setAttribute("r", 5);
 }
 
+const degToRad = (deg) => (deg * Math.PI) / 180;
+
 function findXY(r, deg, offset) {
   const rad = degToRad(deg);
   let x = r * Math.cos(rad);
@@ -21,3 +23,24 @@ function findXY(r, deg, offset) {
   }
   return { x, y };
 }
+
+const offset = { x: 150, y: 150 };
+
+function drawPoint(r, deg, color) {
+  const p = findXY(r, deg, offset);
+  createPoint(p.x, p.y, color);
+}
+
+function createLine(p1, p2) {
+    const svgEL = document.querySelector("svg");
+    const lineEL = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "line"
+    );
+    svgEL.appendChild(lineEL);
+    lineEL.setAttribute("x1", p1.x);
+    lineEL.setAttribute("y1", p1.y);
+    lineEL.setAttribute("x2", p2.x);
+    lineEL.setAttribute("y2", p2.y);
+    lineEL.setAttribute("stroke", "blue");
+  }
