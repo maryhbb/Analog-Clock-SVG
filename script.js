@@ -39,17 +39,24 @@ function createLine(p1, p2, strong) {
   lineEL.setAttribute("y1", p1.y);
   lineEL.setAttribute("x2", p2.x);
   lineEL.setAttribute("y2", p2.y);
-  lineEL.setAttribute("stroke", "blue");
+  lineEL.setAttribute("stroke", "black");
   lineEL.setAttribute("stroke-width", strong ? 2.5 : 1);
 }
 
 function drawTick(deg) {
   const strong = deg % 30 == 0;
   const p1 = findXY(100, deg, offset);
-  const p2 = findXY(strong ? 80 : 90, deg, offset);
+  const p2 = findXY(strong ? 90 : 95, deg, offset);
   createLine(p1, p2, strong);
 }
 
 for (let deg = 0; deg < 360; deg += 6) {
   drawTick(deg);
 }
+
+
+function rotateSecond (deg){
+
+    document.getElementById("seconds").style.transform= `rotate(${deg}deg)`;
+    
+    }
